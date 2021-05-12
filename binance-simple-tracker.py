@@ -103,7 +103,7 @@ async def main():
                         print(Fore.RESET + "[" + Fore.RED + "BIG SELL" + Fore.RESET + "] " + Fore.RED + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2)
                     if "M" in format2:
                         format = format2.replace("M","")
-                        if int(format) > 150:
+                        if int(format) > 250:
                             price = round(float(x["qty"]) * float(x["price"]), 2)
                             print(Fore.RESET + "[" + Fore.RED + "BIG SELL" + Fore.RESET + "] " + Fore.RED + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2 + " | Total: " + str(price) + "$")
 
@@ -114,13 +114,13 @@ async def main():
                         print(Fore.RESET + "[" + Fore.GREEN + "BIG BUY" + Fore.RESET + "] " + Fore.GREEN + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2)
                     if "M" in format2:
                         format = format2.replace("M","")
-                        if int(format) > 150:
+                        if int(format) > 250:
                             price = round(float(x["qty"]) * float(x["price"]), 2)
                             print(Fore.RESET + "[" + Fore.GREEN + "BIG BUY" + Fore.RESET + "] " + Fore.GREEN + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2 + " | Total: " + str(price) + "$")
                     totalbuy = totalbuy + float(x["qty"])
         total_now = totalbuy - totalsell
 
-        if len(trade_trend) >= 10:
+        if len(trade_trend) >= trade_trend_interval:
             trade_trend.pop(0)
              
         trade_trend.append(total_now)
