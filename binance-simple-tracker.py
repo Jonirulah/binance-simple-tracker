@@ -100,23 +100,23 @@ async def main():
                 # Sell order
                 if x["isBuyerMaker"] == True:
                     if debug:
-                        print(Fore.RESET + "[" + Fore.RED + "BIG SELL" + Fore.RESET + "] " + Fore.GREEN + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2)
+                        print(Fore.RESET + "[" + Fore.RED + "BIG SELL" + Fore.RESET + "] " + Fore.RED + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2)
                     if "M" in format2:
                         format = format2.replace("M","")
                         if int(format) > 150:
                             price = round(float(x["qty"]) * float(x["price"]), 2)
-                            print(Fore.RESET + "[" + Fore.RED + "BIG SELL" + Fore.RESET + "] " + Fore.GREEN + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2 + " | Total: " + str(price) + "$")
+                            print(Fore.RESET + "[" + Fore.RED + "BIG SELL" + Fore.RESET + "] " + Fore.RED + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2 + " | Total: " + str(price) + "$")
 
                     totalsell = totalsell + float(x["qty"])
                 # Buy Order
                 elif x["isBuyerMaker"] == False:
                     if debug:
-                        print(Fore.RESET + "[" + Fore.GREEN + "BIG BUY" + Fore.RESET + "] " + Fore.RED + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2)
+                        print(Fore.RESET + "[" + Fore.GREEN + "BIG BUY" + Fore.RESET + "] " + Fore.GREEN + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2)
                     if "M" in format2:
                         format = format2.replace("M","")
                         if int(format) > 150:
                             price = round(float(x["qty"]) * float(x["price"]), 2)
-                            print(Fore.RESET + "[" + Fore.GREEN + "BIG BUY" + Fore.RESET + "] " + Fore.RED + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2 + " | Total: " + str(price) + "$")
+                            print(Fore.RESET + "[" + Fore.GREEN + "BIG BUY" + Fore.RESET + "] " + Fore.GREEN + "ID " + str(x['id']) + " | Precio: " + x['price'] + " | Cantidad: " + format2 + " | Total: " + str(price) + "$")
                     totalbuy = totalbuy + float(x["qty"])
         total_now = totalbuy - totalsell
 
@@ -127,6 +127,7 @@ async def main():
 
         print(Fore.RESET + "[" + Fore.YELLOW + pair + Fore.RESET +"] " + Fore.RESET + "Total SELL: " + Fore.RED + Formatter(totalsell) + Fore.RESET +  " | Total BUY: " + Fore.GREEN + Formatter(totalbuy) + Fore.RESET)
         time.sleep(interval_trade)
+
 
 
 if __name__ == "__main__":
