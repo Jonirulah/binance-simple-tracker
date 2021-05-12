@@ -4,4 +4,6 @@ As simple as it is, it's not intended to work with all pairs on binance and it h
 
 Put your API Key and API Secret, you can find it here https://www.binance.com/en/my/settings/api-management , and put in on the script, no binaries are provided for download.
 
+You all can rework it in your own way, nothing special as I said.
+
 You can use it for whatever you want have a nice day/night.
